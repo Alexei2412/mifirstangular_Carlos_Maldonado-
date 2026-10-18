@@ -1,0 +1,23 @@
+.contact-container {
+     display: flex; 
+    justify-content: center; 
+    margin-top: 40px; 
+}
+.contact-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+.contact-card h2 {
+     color: #3730a3; 
+     margin-top: 0; 
+    }
+.info-group p { 
+    margin: 15px 0; 
+    font-size: 1.1rem;
+     color: #333; 
+    }
+.info-group strong { color: #4c44e8; }

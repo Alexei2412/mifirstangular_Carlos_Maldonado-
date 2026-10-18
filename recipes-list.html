@@ -1,0 +1,63 @@
+<section class="filters">
+  <h3>Seleccion de filtros</h3>
+
+  <label>
+    <input type="radio" name="filterType" value="NAME" [(ngModel)]="filterType">
+    Por nombre
+  </label>
+  <label>
+    <input type="radio" name="filterType" value="DIFFICULTY" [(ngModel)]="filterType">
+    Por nivel de dificultad
+  </label>
+
+  @if (filterType === 'NAME') {
+    <label>
+      Nombre a buscar
+      <input type="text" placeholder="Ingrese el nombre de la receta" [(ngModel)]="_name">
+    </label>
+  }
+
+  @if (filterType === 'DIFFICULTY') {
+    <label>
+      Opciones de dificultad
+      <select [(ngModel)]="_difficulty">
+        <option value="">Seleccione una opcion</option>
+        <option value="easy">Facil</option>
+        <option value="medium">Medio</option>
+      </select>
+    </label>
+  }
+
+  <div class="filter-actions">
+    <button type="button" (click)="filterRecipesList()" [disabled]="!canFilter">Filtro local</button>
+    <button type="button" (click)="filterRecipesListExternal()" [disabled]="!canFilter">Filtro externo</button>
+  </div>
+</section>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>dificultad</th>
+      <th>acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (i of _recipesListFilter; track i.id; let row = $index) {
+      <tr>
+        <td>{{ row + 1 }}</td>
+        <td>{{ i.id }} - {{ i.name }}</td>
+        <td>{{ i.difficulty }}</td>
+        <td>
+          <a [routerLink]="['/recipes-details', i.id]">Ver detalle (etiqueta a)</a>
+          <button type="button" (click)="viewDetails(i.id)">Ver detalle (boton)</button>
+        </td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="4">No se encontraron datos</td>
+      </tr>
+    }
+  </tbody>
+</table>

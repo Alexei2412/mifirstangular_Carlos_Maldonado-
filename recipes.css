@@ -1,0 +1,89 @@
+/* Contenedor principal: Diseño responsivo para las cards */
+.recipes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+}
+
+/* Diseño de la tarjeta (Card) */
+.recipe-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Imagen superior */
+.recipe-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* Contenido interno de la tarjeta */
+.recipe-content {
+  padding: 20px;
+}
+
+.recipe-title {
+  margin-top: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* Chips de los Tags */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.chip {
+  background-color: #e0e7ff;
+  color: #3730a3;
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Estructura de las 2 columnas */
+.details-columns {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+}
+
+.column h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.column ul, .column ol {
+  padding-left: 20px;
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.column li {
+  margin-bottom: 8px;
+}
+
+/* Diseño responsivo para pantallas pequeñas (Punto D) */
+@media (max-width: 768px) {
+  .details-columns {
+    flex-direction: column; /* Ingredientes arriba, instrucciones abajo */
+  }
+}

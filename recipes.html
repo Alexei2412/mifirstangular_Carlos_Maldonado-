@@ -1,0 +1,44 @@
+<div class="recipes-container">
+  @for (recipe of recipesList.recipes; track recipe.id) {
+    <div class="recipe-card">
+      
+      <!-- a. La imagen en la parte de arriba -->
+      <img [src]="recipe.image" [alt]="recipe.name" class="recipe-image">
+      
+      <div class="recipe-content">
+        <!-- b. Abajo: id - name -->
+        <h2 class="recipe-title">{{ recipe.id }} - {{ recipe.name }}</h2>
+        
+        <!-- c. Abajo: listado de chips -->
+        <div class="tags-container">
+          @for (tag of recipe.tags; track tag) {
+            <span class="chip">{{ tag }}</span>
+          }
+        </div>
+        
+        <!-- d. Abajo mostrar 2 columnas -->
+        <div class="details-columns">
+          <!-- Columna izquierda: listado de ingredientes -->
+          <div class="column">
+            <h3>Ingredientes</h3>
+            <ul>
+              @for (ingredient of recipe.ingredients; track ingredient) {
+                <li>{{ ingredient }}</li>
+              }
+            </ul>
+          </div>
+          
+          <div class="column">
+            <h3>Instrucciones</h3>
+            <ol>
+              @for (instruction of recipe.instructions; track instruction) {
+                <li>{{ instruction }}</li>
+              }
+            </ol>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  }
+</div>
